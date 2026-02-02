@@ -27,19 +27,18 @@ public class juego {
 		}
 		
 		rule.miSaldo(saldoIntroducido);
-		String opcion;
+		int opcion;
 		
 		do {
-			
-			ruleta.mostrarSaldo(rule.saldo);
-							
-			opcion = ruleta.apuesta();
-			
-			if (opcion.equals("acabar")) {
-				break;
-			}
-			
+				
 			try {				
+				ruleta.mostrarSaldo(rule.saldo);
+				
+				opcion = ruleta.apuesta();
+				
+				if (opcion == 6) {
+					break;
+				}
 				
 				ruleta.dineroApostado();
 				
@@ -57,31 +56,31 @@ public class juego {
 				String colores = rule.color();
 				
 				switch(opcion) {
-					case "color" -> {
+					case 1 -> {
 						ruleta.menuColor();
 						String colorApostado = sc.next().toLowerCase();					
 						victoria = rule.apostarColor(apuesta, colorApostado);
 					}
 					
-					case "numero" -> {
+					case 2 -> {
 						ruleta.menuNum();
 						int numApostado = sc.nextInt();			
 						victoria = rule.apostarNumero(apuesta, numApostado);
 					}
 					
-					case "par/impar" -> {
+					case 3 -> {
 						ruleta.menuPar();
 						String parImpar = sc.next().toLowerCase();
 						victoria = rule.apostarParImpar(apuesta, parImpar);
 					}
 					
-					case "fila" -> {
+					case 4 -> {
 						ruleta.menuFila();
 						int filaApostada = sc.nextInt();					
 						victoria = rule.apostarFila(apuesta, filaApostada);
 					}
 					
-					case "docenas" -> {					
+					case 5 -> {					
 						ruleta.menuDocenas();
 						int docenaApostada = sc.nextInt();
 						victoria = rule.apostarDocena(apuesta, docenaApostada);

@@ -20,7 +20,7 @@ public class Interfaz {
     	System.out.print("¿Cuanto dinero quieres apostar?: ");
     }
 	
-	String apuesta() {	
+	int apuesta() {	
 		System.out.println("¿A que quieres apostar?");
 		System.out.println();
 		System.out.println("1. Color");
@@ -29,7 +29,7 @@ public class Interfaz {
 		System.out.println("4. Fila");
 		System.out.println("5. Docenas");
 		System.out.println("6. Acabar");
-		return sc.next().toLowerCase();		
+		return sc.nextInt();
 	}
 	
 	public void menuColor() {
